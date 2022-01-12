@@ -1,8 +1,8 @@
-package com.service.impl;
+package com.nabers.service.impl;
 
 import com.nabers.persistence.model.Project;
-import com.persistence.repository.impl.IprojectRepository;
-import com.service.IprojectService;
+import com.nabers.persistence.repository.IprojectRepository;
+import com.nabers.service.IprojectService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;

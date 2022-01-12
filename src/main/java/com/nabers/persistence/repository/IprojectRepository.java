@@ -1,4 +1,4 @@
-package com.persistence.repository.impl;
+package com;
 
 import com.nabers.persistence.model.Project;
 
