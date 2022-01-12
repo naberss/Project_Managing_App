@@ -1,12 +1,13 @@
-package com;
+package com.nabers.persistence.repository.impl;
 
 import com.nabers.persistence.model.Project;
+import com.nabers.persistence.repository.IprojectRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProjectRepositoryImpl implements IprojectRepository{
+public class ProjectRepositoryImpl implements IprojectRepository {
 
 List<Project> projects = new ArrayList<>();
 

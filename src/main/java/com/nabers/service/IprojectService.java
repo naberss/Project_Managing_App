@@ -1,4 +1,4 @@
-package com.service;
+package com.nabers.service;
 
 import com.nabers.persistence.model.Project;
 
