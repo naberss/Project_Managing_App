@@ -9,15 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ProjectServiceImpl implements IprojectService {
+public class ProjectServiceImplFieldInjection implements IprojectService {
 
+    //Field based DI
+    @Autowired
     private IprojectRepository projectRepo;
-
-
-    //Injection via constructor
-    public ProjectServiceImpl(IprojectRepository projectRepository) {
-        this.projectRepo = projectRepository;
-    }
 
     @Override
     public Optional<Project> findByid(Long id) {
