@@ -2,11 +2,14 @@ package com.nabers.persistence.repository.impl;
 
 import com.nabers.persistence.model.Project;
 import com.nabers.persistence.repository.IprojectRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class ProjectRepositoryImpl implements IprojectRepository {
 
 List<Project> projects = new ArrayList<>();
