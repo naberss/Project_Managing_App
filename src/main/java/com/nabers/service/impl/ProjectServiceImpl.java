@@ -6,12 +6,17 @@ import com.nabers.service.IprojectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Service
 public class ProjectServiceImpl implements IprojectService {
 
+    @Autowired
     private IprojectRepository projectRepo;
+
+    /*@Autowired
+    private IprojectRepository projectRepo2;*/
 
 
     //Injection via constructor
@@ -28,4 +33,12 @@ public class ProjectServiceImpl implements IprojectService {
     public Project save(Project project) {
         return projectRepo.save(project);
     }
+
+    @PostConstruct
+    public void after() {
+
+    }
 }
+
+
+
