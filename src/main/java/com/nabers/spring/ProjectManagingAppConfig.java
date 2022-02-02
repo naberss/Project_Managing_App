@@ -50,4 +50,14 @@ public class ProjectManagingAppConfig {
         return new ProjectRepositoryImpl();
     }
 
+    @Bean(initMethod = "initialize")
+    public CustomBeanPostProcessor_1 customBeanPostProcessor_1(){
+        return new CustomBeanPostProcessor_1();
+    }
+
+    @Bean(initMethod = "initialize")
+    public CustomBeanPostProcessor_2 customBeanPostProcessor_2(){
+        return new CustomBeanPostProcessor_2();
+    }
+
 }
