@@ -3,25 +3,36 @@ package com.nabers.service.impl;
 import com.nabers.persistence.model.Project;
 import com.nabers.persistence.repository.IprojectRepository;
 import com.nabers.service.IprojectService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Service
-public class ProjectServiceImpl implements IprojectService {
+public class ProjectServiceImpl implements IprojectService, ApplicationContextAware {
 
     @Autowired
     private IprojectRepository projectRepo;
 
+    Logger log = LoggerFactory.getLogger(ProjectServiceImpl.class);
+
     /*@Autowired
     private IprojectRepository projectRepo2;*/
-
 
     //Injection via constructor
     public ProjectServiceImpl(IprojectRepository projectRepository) {
         this.projectRepo = projectRepository;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        log.info("Context wih ID: {}",applicationContext.getId());
     }
 
     @Override
