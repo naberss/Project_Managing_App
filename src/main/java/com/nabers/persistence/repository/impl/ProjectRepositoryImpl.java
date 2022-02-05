@@ -2,6 +2,7 @@ package com.nabers.persistence.repository.impl;
 
 import com.nabers.persistence.model.Project;
 import com.nabers.persistence.repository.IprojectRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,6 @@ import java.util.Optional;
 public class ProjectRepositoryImpl implements IprojectRepository {
 
 List<Project> projects = new ArrayList<>();
-
 
     @Override
     public Optional<Project> findByid(Long id) {
@@ -39,6 +39,8 @@ List<Project> projects = new ArrayList<>();
 
         return project;
     }
+
+
 
 
 
