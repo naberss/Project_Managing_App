@@ -8,6 +8,7 @@ import com.nabers.testBeans.Bean_A;
 import com.nabers.testBeans.Bean_B;
 import com.nabers.testBeans.Bean_C;
 import com.nabers.testBeans.Interface.customBean;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,12 +38,12 @@ public class ProjectManagingAppConfig {
     }
 
     @Bean(initMethod = "initialize")
-    public static CustomBeanPostProcessor_1 customBeanPostProcessor_1(){
+    public static CustomBeanPostProcessor_1 customBeanPostProcessor_1() {
         return new CustomBeanPostProcessor_1();
     }
 
     @Bean(initMethod = "initialize")
-    public static CustomBeanPostProcessor_2 customBeanPostProcessor_2(){
+    public static CustomBeanPostProcessor_2 customBeanPostProcessor_2() {
         return new CustomBeanPostProcessor_2();
     }
 

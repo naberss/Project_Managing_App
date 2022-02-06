@@ -4,6 +4,8 @@ import com.nabers.persistence.model.Project;
 import com.nabers.persistence.repository.IprojectRepository;
 import com.nabers.service.IprojectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import java.util.Optional;
 
 public class ProjectServiceImplSetterInjection implements IprojectService {
@@ -23,7 +25,7 @@ public class ProjectServiceImplSetterInjection implements IprojectService {
 
     //Setter based DI
     @Autowired
-    public void setProjectRepo(IprojectRepository iprojectRepository) {
+    public void setProjectRepo(@Qualifier("ProjectRepositoryImplSing") IprojectRepository iprojectRepository) {
         projectRepo = iprojectRepository;
     }
 

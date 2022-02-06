@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ import java.util.Optional;
 @Service
 public class ProjectServiceImpl implements IprojectService, ApplicationContextAware {
 
-    @Autowired
-    private IprojectRepository projectRepo;
+    private
+    IprojectRepository projectRepo;
 
     Logger log = LoggerFactory.getLogger(ProjectServiceImpl.class);
 
@@ -26,13 +27,13 @@ public class ProjectServiceImpl implements IprojectService, ApplicationContextAw
     private IprojectRepository projectRepo2;*/
 
     //Injection via constructor
-    public ProjectServiceImpl(IprojectRepository projectRepository) {
+    public ProjectServiceImpl(@Qualifier("ProjectRepositoryImplSing") IprojectRepository projectRepository) {
         this.projectRepo = projectRepository;
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        log.info("Context wih ID: {}",applicationContext.getId());
+        log.info("Context wih ID: {}", applicationContext.getId());
     }
 
     @Override
