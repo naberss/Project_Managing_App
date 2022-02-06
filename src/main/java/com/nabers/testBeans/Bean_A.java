@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import javax.annotation.PostConstruct;
 
 @Component
 @PropertySource("application_teste.properties")
+@Profile("PROD")
 public class Bean_A  {
 
     private static Logger log = LoggerFactory.getLogger(Bean_A.class);
@@ -51,6 +53,8 @@ public class Bean_A  {
         log.info(prefix);
         log.info(suffix);
         log.info(environment.getProperty("project.triffix"));
+        log.info("Default profiles: ",environment.getDefaultProfiles());
+        log.info("Default profiles: ",environment.getActiveProfiles());
     }
 
 }

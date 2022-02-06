@@ -10,10 +10,7 @@ import com.nabers.testBeans.Bean_C;
 import com.nabers.testBeans.Interface.customBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 @Configuration
 public class ProjectManagingAppConfig {
@@ -26,6 +23,7 @@ public class ProjectManagingAppConfig {
     @Bean
     /*@Scope("prototype")*/
     @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Profile("PROD")
     public IprojectRepository ProjectRepositoryImplProt() {
         return new ProjectRepositoryImpl();
     }
@@ -33,6 +31,7 @@ public class ProjectManagingAppConfig {
     @Bean
     /*@Scope("singleton")*/
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+    @Profile("PROD")
     public IprojectRepository ProjectRepositoryImplSing() {
         return new ProjectRepositoryImpl();
     }
