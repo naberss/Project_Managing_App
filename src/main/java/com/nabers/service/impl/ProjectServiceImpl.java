@@ -10,16 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Service
+@Primary
 public class ProjectServiceImpl implements IprojectService, ApplicationContextAware {
 
-    private
-    IprojectRepository projectRepo;
+    private IprojectRepository projectRepo;
 
     Logger log = LoggerFactory.getLogger(ProjectServiceImpl.class);
 

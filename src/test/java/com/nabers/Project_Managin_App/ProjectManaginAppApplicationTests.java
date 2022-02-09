@@ -1,4 +1,4 @@
-package com.study.Project_Managin_App;
+package com.nabers.Project_Managin_App;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

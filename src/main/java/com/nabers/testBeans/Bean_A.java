@@ -18,7 +18,7 @@ import javax.annotation.PostConstruct;
 @Component
 @PropertySource("application_teste.properties")
 @Profile("PROD")
-public class Bean_A  {
+public class Bean_A {
 
     private static Logger log = LoggerFactory.getLogger(Bean_A.class);
     String foo;
@@ -38,6 +38,10 @@ public class Bean_A  {
         this.customBean = bean;
     }
 
+    public Bean_A() {
+
+    }
+
     public String getFoo() {
         return foo;
     }
@@ -49,12 +53,12 @@ public class Bean_A  {
     @PostConstruct
     public void post() {
         log.info("@PostConstruct being called on this method once, when Bean_A is initialized");
-        log.info("value of property foo is: {}",this.foo);
+        log.info("value of property foo is: {}", this.foo);
         log.info(prefix);
         log.info(suffix);
         log.info(environment.getProperty("project.triffix"));
-        log.info("Default profiles: ",environment.getDefaultProfiles());
-        log.info("Default profiles: ",environment.getActiveProfiles());
+        log.info("Default profiles: ", environment.getDefaultProfiles());
+        log.info("Default profiles: ", environment.getActiveProfiles());
     }
 
 }
