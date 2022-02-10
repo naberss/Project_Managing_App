@@ -27,7 +27,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@TestPropertySource(locations = "classpath:applicationn.properties")
+@TestPropertySource(locations = "classpath:application-Test.properties")
 public class ProjectServiceUnitTest {
 
     private ProjectRepositoryImpl iprojectRepository = new ProjectRepositoryImpl();

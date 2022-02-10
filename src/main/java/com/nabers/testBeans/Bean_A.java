@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-@PropertySource("application_teste.properties")
+@PropertySource("application.properties")
 @Profile("PROD")
 public class Bean_A {
 

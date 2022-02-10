@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringJUnitConfig(value = TestConfig.class)
 @ActiveProfiles("PROD")
-@TestPropertySource(locations ="classpath:applicationn.properties")
+@TestPropertySource(locations = "classpath:application-Test.properties")
 public class ProjectServiceIntegrationTest {
 
     @Value("${project.teste}")

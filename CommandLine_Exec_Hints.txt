@@ -1,0 +1,30 @@
+MAVEN RUN COMMAND:
+
+sets:
+ -jvm arguments
+ -active profiles
+ -Default application props file
+
+mvn spring-boot:run \
+    -Dspring-boot.run.arguments="property1, '--my.application.property=value'" \
+    -Dspring-boot.run.profiles="dev" \
+    -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005" 
+---------------------------------------------------------------------------------------------------------------//
+sets: 
+ - default run config
+
+mvn spring-boot:run
+
+===============================================================================================================//
+
+JAVA FAT-JAR (PACKAGED) RUN COMMAND:
+
+
+From IDE: java -jar target/Project_Managin_App-0.0.1-SNAPSHOT.jar
+
+From target dir: -> java -jar Project_Managin_App-0.0.1-SNAPSHOT.jar
+
+Using customized arguments: java -jar -Dspring.profiles.active=dev \
+    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
+    target/deploying-boot-2-application-other-options-0.1.0-SNAPSHOT.jar \ 
+    property1 --my.application.property=value
