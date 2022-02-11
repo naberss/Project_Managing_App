@@ -3,8 +3,11 @@ package com.nabers.persistence.repository.impl;
 import com.nabers.persistence.model.Project;
 import com.nabers.persistence.repository.IprojectRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -12,12 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 @Primary
 @Repository
 @Profile("PROD")
-public class ProjectRepositoryImpl implements IprojectRepository {
+public class ProjectRepositoryImpl implements IprojectRepository, CommandLineRunner  {
 
-List<Project> projects = new ArrayList<>();
+    List<Project> projects = new ArrayList<>();
 
     @Override
     public Optional<Project> findByid(Long id) {
@@ -43,9 +47,9 @@ List<Project> projects = new ArrayList<>();
     }
 
 
-
-
-
-
+    @Override
+    @Order(value = 1)
+    public void run(String... args) throws Exception {
+        System.out.println("running fast as fuck");
+    }
 }
-

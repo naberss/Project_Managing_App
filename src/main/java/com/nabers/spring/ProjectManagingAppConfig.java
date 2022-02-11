@@ -1,5 +1,6 @@
 package com.nabers.spring;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nabers.persistence.repository.IprojectRepository;
 import com.nabers.persistence.repository.impl.ProjectRepositoryImpl;
 import com.nabers.service.IprojectService;
@@ -10,10 +11,19 @@ import com.nabers.testBeans.Bean_C;
 import com.nabers.testBeans.Interface.customBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.*;
 
 @Configuration
+@EnableAutoConfiguration(excludeName = "objectMapper")
 public class ProjectManagingAppConfig {
+
+    @Bean
+    /* Bean jacksonObjectMapper on JacksonAutoConfiguration class have been disabled
+    *  due customized creation of a Bean returning  an ObjectMapper*/
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
+    }
 
     @Bean
     public IprojectService projectServiceImplSetterInjection() {
