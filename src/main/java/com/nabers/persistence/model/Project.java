@@ -1,13 +1,22 @@
 package com.nabers.persistence.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity(name="PROJECT")
 public class Project {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private LocalDate dateCreated;
+
+    public Project() {
+    }
 
     public Project(Long id, String name, LocalDate dateCreated) {
         this.id = id;

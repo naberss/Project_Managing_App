@@ -24,8 +24,8 @@ public class ProjectServiceImpl implements IprojectService, ApplicationContextAw
 
     Logger log = LoggerFactory.getLogger(ProjectServiceImpl.class);
 
-    /*@Autowired
-    private IprojectRepository projectRepo2;*/
+    @Autowired
+    private IprojectRepository projectRepo2;
 
     //Injection via constructor
     public ProjectServiceImpl(@Qualifier("ProjectRepositoryImplSing") IprojectRepository projectRepository) {

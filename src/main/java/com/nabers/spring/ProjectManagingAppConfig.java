@@ -13,6 +13,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.*;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableAutoConfiguration(excludeName = "objectMapper")
@@ -20,7 +24,7 @@ public class ProjectManagingAppConfig {
 
     @Bean
     /* Bean jacksonObjectMapper on JacksonAutoConfiguration class have been disabled
-    *  due customized creation of a Bean returning  an ObjectMapper*/
+     *  due customized creation of a Bean returning  an ObjectMapper*/
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
     }
@@ -44,6 +48,15 @@ public class ProjectManagingAppConfig {
     @Profile("PROD")
     public IprojectRepository ProjectRepositoryImplSing() {
         return new ProjectRepositoryImpl();
+    }
+
+    /* Config in memory database for non springBoot aplications */
+    @Bean
+    public DataSource dataSource() {
+        return new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .setName("TestDB")
+                .build();
     }
 
     @Bean(initMethod = "initialize")
